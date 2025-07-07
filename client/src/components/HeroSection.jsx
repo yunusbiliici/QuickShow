@@ -14,7 +14,7 @@ const HeroSection = () => {
             </h1>
 
             <div className="flex items-center gap-4 text-gray-300">
-                <span>Action | Advanture | Sci-Fii </span>
+                <span>Action | Advanture | Sci-Fi </span>
             </div>
             <div className="flex items-center gap-1">
                 <CalendarIcon className="w-4.5 h-4.5" />
