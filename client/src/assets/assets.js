@@ -55,8 +55,42 @@ const dummyCastsData = [
 ]
 
 export const dummyShowsData = [
-    // ... (bu kısmı olduğu gibi bırakabilirsin)
-    // Kısaltmak için burayı atlıyorum, yukarıdaki gibi kullanabilirsin
+    {
+        _id: '1',
+        title: 'Guardians of the Galaxy',
+        year: 2018,
+        duration: '2h 8m',
+        description: 'A group of intergalactic criminals must pull together to stop a fanatical warrior with plans to purge the universe.',
+        image: 'https://image.tmdb.org/t/p/original/r7vmZjiyZw9rpJMQJdXpjgiCOk9.jpg',
+        rating: 8.1
+    },
+    {
+        _id: '2',
+        title: 'Avengers: Endgame',
+        year: 2019,
+        duration: '3h 2m',
+        description: 'After the devastating events of Avengers: Infinity War, the universe is in ruins.',
+        image: 'https://image.tmdb.org/t/p/original/ulzhLuWrPK07P1YkdWQLZnQh1JL.jpg',
+        rating: 8.4
+    },
+    {
+        _id: '3',
+        title: 'Spider-Man: No Way Home',
+        year: 2021,
+        duration: '2h 28m',
+        description: 'Peter Parker seeks Doctor Strange’s help to make people forget about Spider-Man’s identity.',
+        image: 'https://image.tmdb.org/t/p/original/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg',
+        rating: 8.2
+    },
+    {
+        _id: '4',
+        title: 'Black Panther',
+        year: 2018,
+        duration: '2h 14m',
+        description: 'T’Challa, heir to the hidden but advanced kingdom of Wakanda, must step forward to lead his people.',
+        image: 'https://image.tmdb.org/t/p/original/uxzzxijgPIY7slzFvMotPv8wjKA.jpg',
+        rating: 7.9
+    },
 ]
 
 export const dummyDateTimeData = {
