@@ -60,41 +60,55 @@ export const dummyShowsData = [
         title: 'Guardians of the Galaxy',
         year: 2018,
         duration: '2h 8m',
-        description: 'A group of intergalactic criminals must pull together to stop a fanatical warrior with plans to purge the universe.',
+        overview: 'A group of intergalactic criminals must pull together to stop a fanatical warrior with plans to purge the universe.',
         image: 'https://image.tmdb.org/t/p/original/r7vmZjiyZw9rpJMQJdXpjgiCOk9.jpg',
-        rating: 8.1
+        rating: 8.1,
+        genres: [{ name: 'Action' }, { name: 'Adventure' }, { name: 'Science Fiction' }],
+        casts: dummyCastsData
     },
     {
         _id: '2',
         title: 'Avengers: Endgame',
         year: 2019,
         duration: '3h 2m',
-        description: 'After the devastating events of Avengers: Infinity War, the universe is in ruins.',
+        overview: "The grave course of events set in motion by Thanos that wiped out half the universe and fractured the Avengers ranks compels the remaining Avengers to take one final stand in Marvel Studios' grand conclusion to twenty-two films.",
         image: 'https://image.tmdb.org/t/p/original/ulzhLuWrPK07P1YkdWQLZnQh1JL.jpg',
-        rating: 8.4
+        rating: 8.4,
+        genres: [{ name: 'Adventure' }, { name: 'Science Fiction' }, { name: 'Action' }],
+        casts: dummyCastsData
     },
     {
         _id: '3',
         title: 'Spider-Man: No Way Home',
         year: 2021,
         duration: '2h 28m',
-        description: 'Peter Parker seeks Doctor Strange’s help to make people forget about Spider-Man’s identity.',
+        overview: "With Spider-Man's identity now revealed, Peter asks Doctor Strange for help. When a spell goes wrong, dangerous foes from other worlds start to appear, forcing Peter to discover what it truly means to be Spider-Man.",
         image: 'https://image.tmdb.org/t/p/original/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg',
-        rating: 8.2
+        rating: 8.2,
+        genres: [{ name: 'Action' }, { name: 'Adventure' }, { name: 'Science Fiction' }],
+        casts: dummyCastsData
     },
     {
         _id: '4',
         title: 'Black Panther',
         year: 2018,
         duration: '2h 14m',
-        description: 'T’Challa, heir to the hidden but advanced kingdom of Wakanda, must step forward to lead his people.',
+        overview: 'T’Challa, heir to the hidden but advanced kingdom of Wakanda, must step forward to lead his people into a new future and must confront a challenger from his country’s past.',
         image: 'https://image.tmdb.org/t/p/original/uxzzxijgPIY7slzFvMotPv8wjKA.jpg',
-        rating: 7.9
+        rating: 7.9,
+        genres: [{ name: 'Action' }, { name: 'Adventure' }, { name: 'Science Fiction' }],
+        casts: dummyCastsData
     },
 ]
 
 export const dummyDateTimeData = {
-    // ... (bu kısmı olduğu gibi bırakabilirsin)
+    "2024-08-01": ["10:00", "13:00", "16:00", "19:00"],
+    "2024-08-02": ["11:00", "14:00", "17:00", "20:00"],
+    "2024-08-03": ["12:00", "15:00", "18:00", "21:00"],
+    "2024-08-04": ["10:30", "13:30", "16:30", "19:30"],
+    "2024-08-05": ["11:30", "14:30", "17:30", "20:30"],
+    "2024-08-06": ["12:30", "15:30", "18:30", "21:30"],
+    "2024-08-07": ["10:00", "13:00", "16:00", "19:00"],
 }
 
 export const dummyDashboardData = {
