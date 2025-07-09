@@ -46,7 +46,7 @@ const MoviesDetails = () => {
             {show.movie?.overview || 'No overview available.'}
           </p>
           <p>
-            {show.movie?.duration ?? 'N/A'} / {(show.movie?.genres ?? []).map(genre => genre.name).join(", ")} / {show.movie?.year ?? 'N/A'}
+            {show.movie?.duration ?? 'N/A'} . {(show.movie?.genres ?? []).map(genre => genre.name).join(", ")} . {show.movie?.year ?? 'N/A'}
           </p>
           <div className='flex items-center flex-wrap gap-4 mt-4'>
             <button className='flex items-center gap-2 px-7 py-3 text-sm bg-gray-800 hover:bg-gray-900 transition rounded-md font-medium
@@ -65,7 +65,7 @@ const MoviesDetails = () => {
       <p className='text-lg font-medium mt-20'>Your Favorite Cast</p>
       <div className='overflow-x-auto no-scrollbar mt-8 pb-4'>
         <div className='flex items-center gap-4 w-max px-4'>
-          {show.movie.casts.slice(0, 12).map((cast, index) => (
+          {(show.movie?.casts ?? []).slice(0, 12).map((cast, index) => (
             <div key={index} className='flex flex-col items-center text-center'>
 
               <img src={cast.profile_path} alt="" className='rounded-full
