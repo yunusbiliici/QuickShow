@@ -60,51 +60,34 @@ const dummyCastsData = [
 
 // Film listesi
 export const dummyShowsData = [
-    {
-        _id: '1',
-        title: 'Guardians of the Galaxy',
-        year: 2018,
-        duration: '2h 8m',
-        overview: 'A group of intergalactic criminals must pull together to stop a fanatical warrior with plans to purge the universe.',
-        image: 'https://image.tmdb.org/t/p/original/r7vmZjiyZw9rpJMQJdXpjgiCOk9.jpg',
-        rating: 8.1,
-        genres: [{ name: 'Action' }, { name: 'Adventure' }, { name: 'Science Fiction' }],
-        casts: dummyCastsData
-    },
-    {
-        _id: '2',
-        title: 'Avengers: Endgame',
-        year: 2019,
-        duration: '3h 2m',
-        overview: "The grave course of events set in motion by Thanos that wiped out half the universe and fractured the Avengers ranks compels the remaining Avengers to take one final stand in Marvel Studios' grand conclusion to twenty-two films.",
-        image: 'https://image.tmdb.org/t/p/original/ulzhLuWrPK07P1YkdWQLZnQh1JL.jpg',
-        rating: 8.4,
-        genres: [{ name: 'Adventure' }, { name: 'Science Fiction' }, { name: 'Action' }],
-        casts: dummyCastsData
-    },
-    {
-        _id: '3',
-        title: 'Spider-Man: No Way Home',
-        year: 2021,
-        duration: '2h 28m',
-        overview: "With Spider-Man's identity now revealed, Peter asks Doctor Strange for help. When a spell goes wrong, dangerous foes from other worlds start to appear, forcing Peter to discover what it truly means to be Spider-Man.",
-        image: 'https://image.tmdb.org/t/p/original/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg',
-        rating: 8.2,
-        genres: [{ name: 'Action' }, { name: 'Adventure' }, { name: 'Science Fiction' }],
-        casts: dummyCastsData
-    },
-    {
-        _id: '4',
-        title: 'Black Panther',
-        year: 2018,
-        duration: '2h 14m',
-        overview: 'T’Challa, heir to the hidden but advanced kingdom of Wakanda, must step forward to lead his people into a new future and must confront a challenger from his country’s past.',
-        image: 'https://image.tmdb.org/t/p/original/uxzzxijgPIY7slzFvMotPv8wjKA.jpg',
-        rating: 7.9,
-        genres: [{ name: 'Action' }, { name: 'Adventure' }, { name: 'Science Fiction' }],
-        casts: dummyCastsData
-    },
-]
+  {
+    _id: '1',
+    title: 'Guardians of the Galaxy',
+    year: 2018,
+    duration: '2h 8m',
+    overview: 'A group of intergalactic criminals must pull together to stop a fanatical warrior with plans to purge the universe.',
+    image: 'https://image.tmdb.org/t/p/original/r7vmZjiyZw9rpJMQJdXpjgiCOk9.jpg',
+    rating: 8.1,
+    vote_average: 8.1,
+    vote_count: 1200,  // EKLENDİ
+    genres: [{ name: 'Action' }, { name: 'Adventure' }, { name: 'Science Fiction' }],
+    casts: dummyCastsData
+  },
+  {
+    _id: '2',
+    title: 'Avengers: Endgame',
+    year: 2019,
+    duration: '3h 2m',
+    overview: "The grave course of events set in motion by Thanos that wiped out half the universe and fractured the Avengers ranks compels the remaining Avengers to take one final stand in Marvel Studios' grand conclusion to twenty-two films.",
+    image: 'https://image.tmdb.org/t/p/original/ulzhLuWrPK07P1YkdWQLZnQh1JL.jpg',
+    rating: 8.4,
+    vote_average: 8.4,
+    vote_count: 1500,  // EKLENDİ
+    genres: [{ name: 'Adventure' }, { name: 'Science Fiction' }, { name: 'Action' }],
+    casts: dummyCastsData
+  },
+  // Diğer filmler için de aynı şekilde vote_count ekle
+];
 
 // Seans saatleri
 export const dummyDateTimeData = {
@@ -117,25 +100,70 @@ export const dummyDateTimeData = {
     "2024-08-07": ["10:00", "13:00", "16:00", "19:00"],
 }
 
-// Panel verisi (örnek olarak boş bırakıldı)
+// Panel verisi
 export const dummyDashboardData = {
-    // örnek: toplam kullanıcı, toplam rezervasyon vs.
+    totalBookings: 12,
+    totalRevenue: 1200,
+    activeShows: [
+        {
+            _id: "1",
+            movie: {
+                poster_path: "https://image.tmdb.org/t/p/original/r7vmZjiyZw9rpJMQJdXpjgiCOk9.jpg",
+                title: "Guardians of the Galaxy",
+                vote_average: 8.1,
+            },
+            showDateTime: "2024-08-01T13:00:00",
+            price: 50,
+        },
+        {
+            _id: "2",
+            movie: {
+                poster_path: "https://image.tmdb.org/t/p/original/ulzhLuWrPK07P1YkdWQLZnQh1JL.jpg",
+                title: "Avengers: Endgame",
+                vote_average: 8.4,
+            },
+            showDateTime: "2024-08-02T17:00:00",
+            price: 60,
+        },
+    ],
+    totalUser: 5,
 }
 
 // Rezervasyon verisi
 export const dummyBookingData = [
     {
-        user: "Ali Yılmaz",
-        showId: "1",
-        date: "2024-08-01",
-        time: "13:00",
-        seat: "B5",
+        userName: "Ali Yılmaz",
+        movieTitle: "Guardians of the Galaxy",
+        showTime: "2024-08-01 13:00",
+        seats: ["B5"],
+        amount: 50,
     },
     {
-        user: "Zeynep Demir",
-        showId: "2",
-        date: "2024-08-02",
-        time: "17:00",
-        seat: "C2",
-    }
-]
+        userName: "Zeynep Demir",
+        movieTitle: "Avengers: Endgame",
+        showTime: "2024-08-02 17:00",
+        seats: ["C2"],
+        amount: 60,
+    },
+    {
+        userName: "Mehmet Kara",
+        movieTitle: "Spider-Man: No Way Home",
+        showTime: "2024-08-03 18:00",
+        seats: ["D3", "D4"],
+        amount: 120,
+    },
+    {
+        userName: "Elif Arslan",
+        movieTitle: "Black Panther",
+        showTime: "2024-08-04 16:30",
+        seats: ["A1"],
+        amount: 45,
+    },
+    {
+        userName: "Burak Şahin",
+        movieTitle: "Avengers: Endgame",
+        showTime: "2024-08-05 20:30",
+        seats: ["E5", "E6", "E7"],
+        amount: 180,
+    },
+];
