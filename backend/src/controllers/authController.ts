@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { findUserByEmail, findUserById, createUser } from '../services/user.service';
+import { findUserByEmail, findUserById, createUser } from '../services/userService';
 import { signJwt } from '../utils/jwt';
 import bcrypt from 'bcryptjs';
 

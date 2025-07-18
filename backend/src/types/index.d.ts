@@ -2,7 +2,6 @@ export interface User {
   id: string;
   name: string;
   email: string;
-  password?: string;
   role: 'admin' | 'user';
 }
 
@@ -19,14 +18,13 @@ export interface Movie {
 export interface Showtime {
   id: string;
   movieId: string;
-  date: string;
-  time: string;
+  dateTime: Date; // date ve time birleştirildi ve Date tipi kullanıldı
   availableSeats: number;
   price: number;
 }
 
 export interface Reservation {
   userId: string;
-  showId: string;
+  showtimeId: string; // Daha anlaşılır olması için 'showtimeId' olarak değiştirildi
   seats: string[];
 } 

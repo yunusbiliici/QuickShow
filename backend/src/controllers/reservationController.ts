@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { createReservation, getReservationsByUser } from '../services/reservation.service';
+import { createReservation, getReservationsByUser } from '../services/reservationService';
 
 export const reserveSeats = async (req: Request, res: Response) => {
   // @ts-ignore

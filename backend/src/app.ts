@@ -2,10 +2,10 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
-import { errorHandler } from './middlewares/error.middleware';
-import authRoutes from './routes/auth.routes';
-import movieRoutes from './routes/movie.routes';
-import reservationRoutes from './routes/reservation.routes';
+import { errorHandler } from './middlewares/errorMiddleware';
+import authRoutes from './routes/authRoutes';
+import movieRoutes from './routes/movieRoutes';
+import reservationRoutes from './routes/reservationRoutes';
 
 dotenv.config();
 

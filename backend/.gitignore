@@ -1,0 +1,11 @@
+# Ortam değişkenleri
+.env
+
+# Node
+node_modules/
+dist/
+build/
+
+# Sistem dosyaları
+.DS_Store
+Thumbs.db

@@ -3,30 +3,33 @@ backend/
 │   ├── config/              # Uygulama ayarları (env, db, CORS, vs.)
 │   │   └── database.ts
 │   ├── controllers/         # Route handler fonksiyonları (iş mantığı)
-│   │   ├── auth.controller.ts
-│   │   ├── movie.controller.ts
-│   │   └── reservation.controller.ts
+│   │   ├── authController.ts
+│   │   ├── movieController.ts
+│   │   ├── reservationController.ts
+│   │   └── showtimeController.ts
 │   ├── middlewares/         # Auth, error handler, logger, validator vs.
-│   │   ├── auth.middleware.ts
-│   │   ├── error.middleware.ts
-│   │   └── validate.middleware.ts
+│   │   ├── authMiddleware.ts
+│   │   ├── errorMiddleware.ts
+│   │   └── validateMiddleware.ts
 │   ├── models/              # MongoDB/Mongoose veya ORM modelleri
-│   │   ├── User.ts
 │   │   ├── Movie.ts
 │   │   └── Reservation.ts
+│   │   ├── Showtime.ts
+│   │   └── User.ts
 │   ├── routes/              # API endpoint tanımları
-│   │   ├── auth.routes.ts
-│   │   ├── movie.routes.ts
-│   │   └── reservation.routes.ts
+│   │   ├── authRoutes.ts
+│   │   ├── movieRoutes.ts
+│   │   └── reservationRoutes.ts
 │   ├── services/            # DB işlemleri, dış API'ler, iş mantığı
-│   │   ├── user.service.ts
 │   │   ├── movie.service.ts
 │   │   └── reservation.service.ts
+│   │   ├── showtime.service.ts
+│   │   └── user.service.ts
 │   ├── types/               # TypeScript interface ve type tanımları
 │   │   └── index.d.ts
 │   ├── utils/               # Yardımcı fonksiyonlar (hashing, JWT, vs.)
-│   │   ├── jwt.ts
-│   │   └── hash.ts
+│   │   ├── hash.ts
+│   │   └── jwt.ts
 │   ├── app.ts               # Express uygulaması tanımı
 │   └── server.ts            # Sunucu başlatma dosyası
 ├── .env                     # Ortam değişkenleri
