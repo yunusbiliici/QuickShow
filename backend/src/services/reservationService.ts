@@ -63,3 +63,14 @@ export const createReservation = async (data: ReservationData): Promise<IReserva
     throw error; // Hatayı kontrolcüye gönder
   }
 };
+
+export const getReservationsByUser = async (userId: string): Promise<IReservation[]> => {
+  // Kullanıcının rezervasyonlarını bulurken, ilgili seans ve film bilgilerini de
+  // 'populate' ile getiriyoruz. Bu, frontend'de bilgileri göstermeyi kolaylaştırır.
+  return Reservation.find({ userId }).populate({
+    path: 'showtimeId',
+    populate: {
+      path: 'movieId',
+    },
+  });
+};

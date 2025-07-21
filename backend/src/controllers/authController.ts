@@ -1,27 +1,72 @@
-import { Request, Response } from 'express';
-import { findUserByEmail, findUserById, createUser } from '../services/userService';
+import { Request, Response, NextFunction } from 'express';
+import { findUserByEmail, findUserByEmailWithPassword, findUserById, createUser } from '../services/userService';
 import { signJwt } from '../utils/jwt';
-import bcrypt from 'bcryptjs';
 
-export const login = async (req: Request, res: Response) => {
-  const { email, password } = req.body;
-  const user = await findUserByEmail(email);
-  if (!user) return res.status(401).json({ message: 'Invalid credentials' });
-  const isMatch = await bcrypt.compare(password, user.password);
-  if (!isMatch) return res.status(401).json({ message: 'Invalid credentials' });
-  const token = signJwt({ id: user._id, email: user.email, role: user.role });
-  res.json({ token });
+export const register = async (req: Request, res: Response, next: NextFunction) => {
+  const { name, email, password } = req.body;
+
+  try {
+    if (!name || !email || !password) {
+      return res.status(400).json({ message: 'Lütfen tüm alanları doldurun.' });
+    }
+
+    const userExists = await findUserByEmail(email);
+
+    if (userExists) {
+      return res.status(400).json({ message: 'Bu e-posta adresi zaten kullanılıyor.' });
+    }
+
+    const user = await createUser({ name, email, password });
+
+    res.status(201).json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      role: user.role,
+      token: signJwt({ id: user._id, role: user.role }),
+    });
+  } catch (error) {
+    next(error);
+  }
 };
 
-export const getProfile = async (req: Request, res: Response) => {
-  // @ts-ignore
-  const userId = req.user.id;
-  const user = await findUserById(userId);
-  if (!user) return res.status(404).json({ message: 'User not found' });
-  res.json({
-    id: user._id,
-    name: user.name,
-    email: user.email,
-    role: user.role,
-  });
-}; 
+
+export const login = async (req: Request, res: Response, next: NextFunction) => {
+  const { email, password } = req.body;
+  try {
+    if (!email || !password) {
+      return res.status(400).json({ message: 'Lütfen e-posta ve parola girin.' });
+    }
+
+    const user = await findUserByEmailWithPassword(email);
+
+    if (!user || !(await user.comparePassword(password))) {
+      return res.status(401).json({ message: 'Geçersiz e-posta veya parola.' });
+    }
+
+    res.json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      role: user.role,
+      token: signJwt({ id: user._id, role: user.role }),
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const getProfile = async (req: Request, res: Response, next: NextFunction) => {
+  // Bu fonksiyon 'authenticate' middleware'i tarafından korunduğu için,
+  // req.user objesinin var olduğunu ve kullanıcı bilgilerini içerdiğini varsayabiliriz.
+  try {
+    res.json({
+      _id: req.user!._id,
+      name: req.user!.name,
+      email: req.user!.email,
+      role: req.user!.role,
+    });
+  } catch (error) {
+    next(error);
+  }
+};

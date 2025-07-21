@@ -3,7 +3,8 @@ import mongoose, { Document, Schema } from 'mongoose';
 export interface IShowtime extends Document {
   movieId: mongoose.Types.ObjectId;
   dateTime: Date;
-  availableSeats: number;
+  hall: string;
+  availableSeats: string[];
   bookedSeats: string[];
   price: number;
 }
@@ -11,7 +12,8 @@ export interface IShowtime extends Document {
 const ShowtimeSchema = new Schema<IShowtime>({
   movieId: { type: Schema.Types.ObjectId, ref: 'Movie', required: true },
   dateTime: { type: Date, required: true },
-  availableSeats: { type: Number, required: true },
+  hall: { type: String, required: true },
+  availableSeats: { type: [String], required: true },
   bookedSeats: { type: [String], default: [] },
   price: { type: Number, required: true },
 }, { timestamps: true });
