@@ -163,5 +163,3 @@ Projeye katkıda bulunmak isterseniz, lütfen aşağıdaki adımları izleyin:
 
 ## 📄 Lisans
 
-Bu proje MIT Lisansı ile lisanslanmıştır. Detaylar için `LICENSE` dosyasına göz atabilirsiniz.
-
