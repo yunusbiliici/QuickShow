@@ -1,14 +1,18 @@
 import { Router } from 'express';
 import { listMovies, getMovie, createMovie } from '../controllers/movieController';
 import { authenticate, adminOnly } from '../middlewares/authMiddleware';
-import { listShowtimes, addShowtime } from '../controllers/showtimeController';
+import showtimeRoutes from './showtimeRoutes';
 
 const router = Router();
 
+// `/api/movies/:movieId/showtimes` ile başlayan tüm istekleri `showtimeRoutes`'a yönlendir.
+// Bu, iç içe (nested) route yapısıdır ve daha temiz bir kod sağlar.
+router.use('/:movieId/showtimes', showtimeRoutes);
+
 router.get('/', listMovies);
 router.post('/', authenticate, adminOnly, createMovie);
-router.get('/:id', getMovie);
-router.post('/:movieId/showtimes', authenticate, adminOnly, addShowtime); // Sadece adminler seans ekleyebilir
-router.get('/:movieId/showtimes', listShowtimes);
+
+// Tutarlılık için :id yerine :movieId kullanalım.
+router.get('/:movieId', getMovie);
 
 export default router;

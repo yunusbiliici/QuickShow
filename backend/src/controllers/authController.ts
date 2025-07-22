@@ -60,11 +60,16 @@ export const getProfile = async (req: Request, res: Response, next: NextFunction
   // Bu fonksiyon 'authenticate' middleware'i tarafından korunduğu için,
   // req.user objesinin var olduğunu ve kullanıcı bilgilerini içerdiğini varsayabiliriz.
   try {
+    if (!req.user) {
+      // Bu durum normalde 'authenticate' middleware'i tarafından yakalanır.
+      // Buraya ulaşılması, beklenmedik bir sunucu içi soruna işaret eder.
+      return res.status(500).json({ message: 'Kullanıcı bilgisi alınamadı.' });
+    }
     res.json({
-      _id: req.user!._id,
-      name: req.user!.name,
-      email: req.user!.email,
-      role: req.user!.role,
+      _id: req.user._id,
+      name: req.user.name,
+      email: req.user.email,
+      role: req.user.role,
     });
   } catch (error) {
     next(error);

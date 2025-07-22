@@ -25,8 +25,8 @@ export const authenticate = async (req: Request, res: Response, next: NextFuncti
 
       // 2. Token'ı doğrula ve içindeki payload'u al
       // verifyJwt fonksiyonunun dönüş tipi `any` veya `object` olabilir.
-      // TypeScript'in `decoded.id` özelliğini güvenle kullanabilmesi için `decoded` objesinin yapısını kontrol etmeliyiz.
       const decoded = verifyJwt(token);
+      // TypeScript'in `decoded.id` özelliğini güvenle kullanabilmesi için `decoded` objesinin yapısını kontrol etmeliyiz.
       if (typeof decoded !== 'object' || !decoded || !('id' in decoded) || typeof decoded.id !== 'string') {
         return res.status(401).json({ message: 'Yetkiniz yok, token geçersiz.' });
       }

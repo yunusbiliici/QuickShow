@@ -20,10 +20,8 @@ export const createShowtime = async (
     throw new Error.DocumentNotFoundError('Movie not found with id: ' + movieId);
   }
 
-  const newShowtime = new Showtime({
+  return Showtime.create({
     ...showtimeData,
     movieId: movie._id,
   });
-
-  return newShowtime.save();
 };

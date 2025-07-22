@@ -1,3 +1,5 @@
+import { IUser } from '../models/User';
+
 export interface User {
   id: string;
   name: string;
@@ -28,3 +30,15 @@ export interface Reservation {
   showtimeId: string; // Daha anlaşılır olması için 'showtimeId' olarak değiştirildi
   seats: string[];
 } 
+
+// Express'in Request objesini genişletmek için bu bloğu ekliyoruz.
+// Bu sayede projenin herhangi bir yerinde `req.user` yazdığımızda TypeScript hata vermeyecektir.
+declare global {
+  namespace Express {
+    export interface Request {
+      // Request objesine 'user' özelliğini ekliyoruz.
+      // Bu özellik opsiyoneldir (?) çünkü her request'te bu bilgi olmayabilir (sadece korunan route'larda olur).
+      user?: IUser;
+    }
+  }
+}

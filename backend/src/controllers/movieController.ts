@@ -12,8 +12,9 @@ export const listMovies = async (req: Request, res: Response, next: NextFunction
 
 export const getMovie = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const { id } = req.params;
-    const movie = await getMovieById(id);
+    // Rota dosyasındaki değişiklikle uyumlu olması için 'id' yerine 'movieId' kullanalım.
+    const { movieId } = req.params;
+    const movie = await getMovieById(movieId);
     if (!movie) return res.status(404).json({ message: 'Movie not found' });
     res.json(movie);
   } catch (error) {
